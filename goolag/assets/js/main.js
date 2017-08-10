@@ -19,10 +19,11 @@ async function Crawl(tabCount){
 		var m = keywords.length / tabCount;
 		dummyTabs = [];
 		for(var i = 0; i < tabCount; i++){
-				dummyTabs.push(window.open("http://google.com", "_blank"));
+				dummyTabs.push(window.open("http://google.com",'newwindow' + i,'width=200, height=200', "_blank"));
 		}
     while (i < m) {
         dummyTabs[swatch].location = googleURI + keywords[(swatch * m + i)];
+        dummyTabs[swatch].focus();
         swatch++;
         if(swatch == tabCount){
         	swatch = 0;
